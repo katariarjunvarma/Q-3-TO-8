@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+public class PermissionManager {
+
+    public static int togglePermissionBit(int permissions, int bitPosition) {
+        int mask = 1 << bitPosition;
+        return permissions ^ mask;
+    }
+
+    public static String toBinaryString(int permissions) {
+        return String.format("%4s", Integer.toBinaryString(permissions)).replace(' ', '0');
+    }
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter current permissions (0-15): ");
+        int currentPermissions = input.nextInt();
+
+        System.out.print("Enter the bit position to toggle (0-3): ");
+        int bitPosition = input.nextInt();
+
+        int updatedPermissions = togglePermissionBit(currentPermissions, bitPosition);
+
+        System.out.println("Original permissions: " + toBinaryString(currentPermissions));
+        System.out.println("Updated permissions: " + toBinaryString(updatedPermissions));
+
+        input.close();
+    }
+}
