@@ -1,0 +1,32 @@
+import java.util.Arrays;
+
+public class LongestWordFinder {
+
+    public static String findLongestWord(String sentence) {
+        String[] words = sentence.split(" "); // Split the sentence into words
+        String longestWord = "";
+
+        for (String word : words) {
+            if (word.length() > longestWord.length()) {
+                longestWord = word;
+            }
+        }
+        return longestWord;
+    }
+
+    public static void main(String[] args) {
+        String sentence = "Coding is a fun challenge.";
+        String longestWord = findLongestWord(sentence);
+        System.out.println("Longest word: " + longestWord);
+
+        String anotherSentence = "This is a test sentence with some verylongwordhere.";
+        String anotherLongestWord = findLongestWord(anotherSentence);
+        System.out.println("Longest word: " + anotherLongestWord);
+
+
+        String yetAnotherSentence = "one two three four"; //Test for equal length words
+        String yetAnotherLongestWord = findLongestWord(yetAnotherSentence);
+        System.out.println("Longest word: " + yetAnotherLongestWord);
+
+    }
+}
