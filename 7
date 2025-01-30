@@ -1,0 +1,39 @@
+public class StringRotationChecker {
+
+    public static boolean isRotation(String s1, String s2) {
+        if (s1.length() != s2.length()) {
+            return false; // If lengths are different, they can't be rotations
+        }
+
+        if (s1.length() == 0) { //Handle empty strings
+            return s2.length() == 0;
+        }
+
+        String concatenated = s1 + s1; // Concatenate s1 with itself
+
+        return concatenated.contains(s2); // Check if s2 is a substring of the concatenated string
+    }
+
+    public static void main(String[] args) {
+        String s1 = "coding";
+        String s2 = "ingcod";
+        System.out.println("Is \"" + s2 + "\" a rotation of \"" + s1 + "\"? " + isRotation(s1, s2));
+
+        String s3 = "waterbottle";
+        String s4 = "erbottlewat";
+        System.out.println("Is \"" + s4 + "\" a rotation of \"" + s3 + "\"? " + isRotation(s3, s4));
+
+        String s5 = "hello";
+        String s6 = "world";
+        System.out.println("Is \"" + s6 + "\" a rotation of \"" + s5 + "\"? " + isRotation(s5, s6));
+
+        String s7 = "";
+        String s8 = "";
+        System.out.println("Is \"" + s8 + "\" a rotation of \"" + s7 + "\"? " + isRotation(s7, s8));
+
+        String s9 = "";
+        String s10 = "a";
+        System.out.println("Is \"" + s10 + "\" a rotation of \"" + s9 + "\"? " + isRotation(s9, s10));
+
+    }
+}
